@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import { useMovies } from "./useMovies";
+
+import NavBar from "./Components/NavBar/NavBar";
+import Search from "./Components/NavBar/Search";
+import NumResults from "./Components/NavBar/NumResults";
 
 function App() {
+  const [query, setQuery] = useState("");
+  const { movies, isLoading, error } = useMovies(query, handleCloseMovie);
+  const [selectedId, setSelectedId] = useState(null);
+
+  function handleCloseMovie() {
+    setSelectedId(null);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar>
+        <Search query={query} setQuery={setQuery} />
+        <NumResults movies={movies} />
+      </NavBar>
+    </>
   );
 }
 
