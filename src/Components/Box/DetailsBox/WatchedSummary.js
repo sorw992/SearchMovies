@@ -16,8 +16,6 @@ export default function WatchedSummary({ watched }) {
         </p>
         <p>
           <span>⭐️</span>
-          {/* note: The toFixed() method converts a number to a string.
-          The toFixed() method rounds the string to a specified number of decimals. */}
           <span>{avgImdbRating.toFixed(2)}</span>
         </p>
         <p>
