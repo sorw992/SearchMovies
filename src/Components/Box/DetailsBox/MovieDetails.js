@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { KEY } from "../../../App";
-import { useKey } from "../../../useKey";
+import { KEY } from "../../../pages/Home";
+import { useKey } from "../../../hooks/useKey";
 import Loader from "../../OtherComponents/Loader";
 import StarRating from "../../StarRating/StarRating";
 import ErrorMessage from "../../OtherComponents/ErrorMessage";
@@ -27,14 +27,12 @@ export default function MovieDetails({
     [userRating]
   );
 
- 
   // if it's not watched then show the StarRating component
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
 
   const watchedUserRating = watched.find(
     (movie) => movie.imdbID === selectedId
   )?.userRating;
-
 
   const {
     Title: title,
