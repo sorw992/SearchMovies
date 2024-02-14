@@ -1,4 +1,4 @@
-# Search Movies is an OMDb search movie project that used customm hooks to work with api and store data.
+# Search Movies is an OMDb search movie project that used custom hooks to work with api and store data.
 
 ## Getting Started with Create React App
 
